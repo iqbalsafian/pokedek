@@ -1,15 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Header :legendaryOnly="legendaryOnly" @toggle-legendary="toggleLegendary" />
+  <Pokemon :pokemons="pokemons" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Pokemon from './components/Pokemon';
+import Header from './components/Header';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Pokemon,
+    Header
+  },
+  data() {
+    return {
+      pokemons: [],
+      legendaryOnly: false
+    }
+  },
+  methods: {
+    toggleLegendary() {
+      this.legendaryOnly = !this.legendaryOnly;
+    }
   }
 }
 </script>
