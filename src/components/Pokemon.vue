@@ -48,13 +48,16 @@ export default {
         width: 95%;
     }
     thead {
-        background-color:aquamarine;
+        background-color:#e7e7e7;
     }
     thead > tr > td {
         border: 1px solid #ddd;
     }
     tr:nth-child(even){background-color: #f2f2f2;}
     .colspan {
-        background-color:aquamarine;
+        background-color:#e7e7e7;
+    }
+    td {
+        padding: 3px;
     }
 </style>

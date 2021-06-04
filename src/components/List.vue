@@ -31,4 +31,7 @@ export default {
         text-align: right;
         padding-right: 10px;
     }
+    td {
+        padding: 3px;
+    }
 </style>
