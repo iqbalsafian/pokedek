@@ -1,5 +1,6 @@
 <template>
-    <Button :text="legendaryOnly ? 'Legendary Only' : 'Show All'" @click="$emit('toggle-legendary')" />
+    <Button :text="legendaryOnly ? 'Show All' : 'Show Legendary Only'" @click="$emit('toggle-legendary')" />
+    <div id="header"></div>
 </template>
 
 <script>
@@ -16,3 +17,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    #header {
+        margin-bottom: 20px;
+    }
+</style>

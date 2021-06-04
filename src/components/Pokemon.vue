@@ -1,9 +1,7 @@
 <template>
-    Poke List
     <table align="center">
         <thead>
             <tr>
-                <td rowspan="2">No</td>
                 <td rowspan="2">Name</td>
                 <td colspan="2">Type</td>
                 <td rowspan="2">HP</td>
@@ -24,15 +22,22 @@
             </tr>
         </thead>
         <tbody>
+            <tr v-for="pokemon in pokemons" :key="pokemon.No">
+                <List :pokemon="pokemon" />
+            </tr>
         </tbody>
     </table>
 </template>
 
 <script>
+import List from './List';
 export default {
     name: 'PokeList',
     props: {
         pokemons: Array
+    },
+    components: {
+        List
     }
 }
 </script>

@@ -1,6 +1,7 @@
 <template>
+  <h1>Pokedek - {{ legendaryOnly ? 'Showing all legendary pokemon' : 'Showing all pokemon' }}</h1>
   <Header :legendaryOnly="legendaryOnly" @toggle-legendary="toggleLegendary" />
-  <Pokemon :pokemons="pokemons" />
+  <Pokemon :pokemons="legendaryOnly ? legendaryOnlyPokemons : pokemons" />
 </template>
 
 <script>
@@ -22,7 +23,20 @@ export default {
   methods: {
     toggleLegendary() {
       this.legendaryOnly = !this.legendaryOnly;
+    },
+    async getPokemon() {
+      const res = await fetch('http://localhost:8882');
+      const result = await res.json();
+      this.pokemons = result.data.sort();
     }
+  },
+  computed: {
+    legendaryOnlyPokemons: function() {
+      return this.pokemons.filter(pokemon => pokemon.Legendary === "True").sort();
+    }
+  },
+  created() {
+    this.getPokemon();
   }
 }
 </script>

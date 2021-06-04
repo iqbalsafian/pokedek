@@ -1,12 +1,13 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
+app.use(cors());
 
 const sqlite3 = require('sqlite3').verbose();
 const DBSOURCE = "pokemon.sql";
 var dbError = false;
 const db = new sqlite3.Database(DBSOURCE, err => {
   if (err) {
-    console.log(err)
     dbError = true
   }
 })
@@ -14,6 +15,7 @@ const db = new sqlite3.Database(DBSOURCE, err => {
 app.get("/", (req, res) => {
   const sql = "SELECT * FROM pokemon";
   let params = [];
+  console.log('requested');
 
   if (dbError) {
     res.status(400).json({ "error": "connecting to db" })
