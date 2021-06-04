@@ -1,5 +1,5 @@
 <template>
-  <h1>Pokedek - {{ legendaryOnly ? 'Showing all legendary pokemon' : 'Showing all pokemon' }}</h1>
+  <h1>Pokedek - {{ legendaryOnly ? 'Showing legendary pokemon only' : 'Showing all pokemon' }}</h1>
   <Header :legendaryOnly="legendaryOnly" @toggle-legendary="toggleLegendary" />
   <Pokemon :pokemons="legendaryOnly ? legendaryOnlyPokemons : pokemons" />
 </template>
